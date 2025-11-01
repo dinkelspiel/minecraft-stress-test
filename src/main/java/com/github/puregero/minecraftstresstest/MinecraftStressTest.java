@@ -94,8 +94,10 @@ public class MinecraftStressTest {
                 botsLock.lock();
                 try {
                     if (bots.size() < BOT_COUNT) {
-                        bots.add(connectBot(System.getProperty("bot.name", "Bot") + (bots.size() + 1), ADDRESS, PORT));
-                        CompletableFuture.delayedExecutor(DELAY_BETWEEN_BOTS_MS, TimeUnit.MILLISECONDS).execute(() -> addBotIfNeeded(false));
+                        bots.add(connectBot(System.getProperty("bot.name", "Bot") + (bots.size() + 1 + Bot.NAME_OFFSET),
+                                ADDRESS, PORT));
+                        CompletableFuture.delayedExecutor(DELAY_BETWEEN_BOTS_MS, TimeUnit.MILLISECONDS)
+                                .execute(() -> addBotIfNeeded(false));
                         scheduledNextCall = true;
                     }
                 } finally {

@@ -18,6 +18,7 @@ public class Bot extends ChannelInboundHandlerAdapter {
     private static final boolean LOGS = Boolean.parseBoolean(System.getProperty("bot.logs", "true"));
     private static final boolean Y_AXIS = Boolean.parseBoolean(System.getProperty("bot.yaxis", "true"));
     private static final int VIEW_DISTANCE = Integer.parseInt(System.getProperty("bot.viewdistance", "2"));
+    public static final int NAME_OFFSET = Integer.parseInt(System.getProperty("bot.offset", "0"));
     private static final int RESOURCE_PACK_RESPONSE = Integer.parseInt(System.getProperty("bot.resource.pack.response", "3"));
 
     private static final Executor ONE_TICK_DELAY = CompletableFuture.delayedExecutor(50,TimeUnit.MILLISECONDS);
